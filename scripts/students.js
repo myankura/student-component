@@ -73,31 +73,26 @@ const students = [
     }
 ]
 
+//This is used to select the query #container and stored in the variable studentContainer
 const studentContainer = document.querySelector("#container")
 
-
-// for (let i = 0; i < students.length; i++) {
-//     const student = students[i]
-//     studentContainer.innerHTML += createStudentComponent(
-//         student.name,
-//         student.subject,
-//         student.info
-//     )
-// }
-
+//for loop to determine students' grade and then style them appropriately
 for (const student of students) {
+    //studentComponent is temporary container, initialize it as a blank string.
     let studentComponent = ""
     if (student.score >= 60) {
         studentComponent = `<div class='student'>
         <h1 class='xx-large passing'>${student.name}</h1>
         <section class='bordered dashed section--padded'>${student.subject}</section>
-        <aside class='pushRight'>${student.info}</aside></div>`
+        <aside class='pushRight'>${student.info}</aside></div>` //use `` for changing styles
     } else {
         studentComponent = `<div class='student'>
         <h1 class='xx-large failing'>${student.name}</h1>
         <section class='bordered dashed section--padded'>${student.subject}</section>
-        <aside class='pushRight'>${student.info}</aside></div>`
+        <aside class='pushRight'>${student.info}</aside></div>` //use `` for changing styles
     }
     
+    //use .innerHTMl to display the students' grades.  use += to prevent from overwriting 
+    //previous students.
     studentContainer.innerHTML += studentComponent
 }
